@@ -1,0 +1,21 @@
+version: "3.0"
+
+# Services to run
+services:
+  mongo_strategy: # name of BD service
+    image: mongo
+    container_name: entrega11
+    ports:
+      - 27017:27017
+    volumes:
+      - entrega11:/data/configdb
+      - entrega11:/data/db
+    restart: always
+
+networks:
+  nodejs-network:
+    name: nodejs-network
+    driver: bridge
+
+volumes:
+  entrega11:
